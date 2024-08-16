@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre de Jeux</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/vnd.icon" href="favicon.ico">
+</head>
+<body>
+    
+    <div class="container" id="menu-container">
+        <h1>Bienvenue au Centre de Jeux</h1>
+        
+        <form id="pseudo-formulaire">
+            <label for="pseudo">Entrez votre pseudonyme :</label>
+            <input type="text" id="pseudo" name="pseudo" required>
+            <button id="bt" type="submit">Valider</button>
+        </form>
+        <div id="jeux" style="display: none;">
+            <h2>Bienvenue, <span id="pseudo-jeux"></span> !</h2>
+            <h2>Choisissez un jeu :</h2>
+            <ul class="menu">
+                <li>
+                    <a href="#" id="typing-lien">Test de Vitesse de Frappe</a>
+                </li>
+                <li>
+                    <a href="#" id="cps-lien">Click par Seconde (CPS)</a>
+                </li>
+                <li>
+                    <a href="#" id="reaction-time-lien">Test de Temps de Réaction</a>
+                </li>
+                <li>
+                    <a href="#" id="draw-circle-lien">Test de Dessin de Cercle</a>
+                </li>
+                <li>
+                    <a href="#" id="spacebar-counter-lien">Spacebar Counter</a>
+                </li>
+                <li>
+                    <a href="#" id="memory-loop-lien">Memory Loop Game</a>
+                </li>
+            </ul>
+            
+            
+            
+            <button id="logout-button">Se déconnecter</button>
+    
+        </div>
+        <div>
+        <button id="montrer-leaderboard-links-btn">Afficher les Leaderboards</button>
+        <button id="pasmontrer-leaderboard-links-btn" style="display: none;">Masquer les Leaderboards</button>
+        
+        <ul id="leaderboard-links" style="display: none;">
+            <li><button id="typing-leaderboard-btn">Leaderboard Vitesse de Frappe</button></li>
+            <li><button id="cps-leaderboard-btn">Leaderboard CPS</button></li>
+            <li><button id="reaction-leaderboard-btn">Leaderboard Temps de Réaction</button></li>
+            <li><button id="draw-circle-leaderboard-btn">Leaderboard Dessin de Cercle</button></li>
+            <li><button id="spacebar-leaderboard-btn">Leaderboard Spacebar Counter</button></li>
+            <li><button id="memory-leaderboard-btn">Leaderboard Memory Loop</button></li>
+        </ul>
+    </div>
+    </div>
+                        <!-- frappe.js -->
+<div class="container" id="typing-container" style="display: none;">
+    <h1>Test de Vitesse de Frappe</h1>
+    <h2>Pseudo : <span id="pseudo-typing"></span></h2>
+    <div id="text-display">
+        <p id="motstyping">Appuyez sur "Commencer" pour lancer le test. <br> 30 mots</p>
+    </div>
+    <textarea id="entrertext" placeholder="Tapez le texte ici..." disabled></textarea>
+    <button id="start-btn">Commencer</button>
+    <div id="results">
+        <p>Temps écoulé: <span id="time-ecoule">0</span> secondes</p>
+    </div>
+    <button id="retry-typing">Recommencer</button>
+    <button id="frappe-back-to-menu">Retour au Menu</button>
+
+    <h2>Meilleurs Scores</h2>
+    <table id="high-scores-table">
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Temps (s)</th>
+            </tr>
+        </thead>
+        <tbody id="high-scores-LEADER">
+            <!-- HIGSCORE -->
+        </tbody>
+    </table>
+    <button id="reset-scores-btn">Réinitialiser les Meilleurs Scores</button>
+</div>
+
+
+
+
+
+                <!-- cps.js  -->
+    <div class="container" id="cps-container" style="display: none;">
+        <h1>Click par Seconde (CPS)</h1>
+        <h2>Pseudo : <span id="cps-pseudo"></span></h2>
+        <button id="click-btn">Cliquez ici aussi vite que possible !</button>
+        <div id="cps-results">
+            <p>Temps restant: <span id="cps-temps">10</span> secondes</p>
+            <p>Nombre de clics: <span id="cps-count">0</span></p>
+            <p>Clicks par Seconde (CPS): <span id="cps-rate">0</span></p>
+        </div>
+        <button id="retry-cps">Recommencer</button>
+        <button id="cps-back-to-menu">Retour au Menu</button>
+        <!-- TABLEAU SCORES CA BUG JE CROIS A VERIFIER -->
+<div id="cps-leaderboard">
+    <h3>Meilleurs Scores CPS</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>CPS</th>
+                <th>Temps</th>
+            </tr>
+        </thead>
+        <tbody id="cps-high-scores-LEADER">
+            <!-- SCORES ICI -->
+        </tbody>
+    </table>
+    <button id="reset-cps-scores-btn">Réinitialiser les Meilleurs Scores</button>
+</div>
+    </div>
+
+
+
+
+
+
+                <!-- reaction-time.js -->
+    <div class="container" id="reaction-time-container" style="display: none;">
+        <h1>Test de Temps de Réaction</h1>
+        <h2>Pseudo : <span id="reaction-time-pseudo"></span></h2>
+        <div>
+            <p id="reaction-tuto">Cliquez sur le bouton ci-dessous pour commencer. Attendez que l'écran devienne vert, puis cliquez le plus rapidement possible.</p>
+            <div class="tn">
+            <button id="reaction-start-btn">Commencer</button>
+               </div>
+            <div id="reaction-result" style="display: none;">
+                <p>Temps de réaction : <span id="reaction-time">0</span> ms</p>
+                <button id="reaction-retry-btn">Recommencer</button>
+            </div>
+        </div>
+        <button id="reaction-back-to-menu">Retour au Menu</button>
+    
+        <!-- TABLEAUX -->
+        <h3>Meilleurs Scores - Test de Temps de Réaction</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Temps de Réaction (ms)</th>
+                </tr>
+            </thead>
+            <tbody id="reaction-highscores">
+                <!-- SCORES ICI -->
+            </tbody>
+        </table>
+        <button id="reset-reaction-scores-btn">Réinitialiser les Meilleurs Scores</button>
+    </div>
+    
+
+
+
+
+
+
+                <!-- draw-circle.js -->
+    <div class="container" id="draw-circle-container" style="display: none;">
+        <h1>Test de Dessin de Cercle</h1>
+        <h2>Pseudo : <span id="draw-circle-pseudo"></span></h2>
+        <p>Essayez de dessiner un cercle aussi parfait que possible dans la zone du canevas.</p>
+        <canvas id="drawingZONE" width="400" height="400"></canvas>
+        <div id="score"></div>
+        <button id="draw-circle-retry">Recommencer</button>
+        <button id="draw-circle-back-to-menu">Retour au Menu</button>
+    
+        <!-- TABLEAU -->
+        <h3>Meilleurs Scores - Dessin de Cercle</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="draw-circle-high-scores-LEADER">
+                <!-- HIGHSCORE -->
+            </tbody>
+        </table>
+        <button id="reset-draw-circle-scores">Réinitialiser les Meilleurs Scores</button>
+    </div>
+    
+
+
+
+
+
+                    <!-- spacebar-counter.js -->
+    <div class="container" id="spacebar-counter-container" style="display: none;">
+        <h1>Spacebar Counter</h1>
+        <h2>Pseudo : <span id="spacebar-counter-pseudo"></span></h2>
+        <p>Appuyez sur la barre d'espace aussi rapidement que possible pendant le temps imparti.</p>
+        <div id="spacebar-countdown">Temps restant : <span id="spacebar-time">5</span> secondes</div>
+        <div id="spacebar-count">Nombre de pressions : <span id="spacebar-comptage">0</span></div>
+
+    <div class="tn">
+        <button id="spacebar-start-btn">Commencer</button>
+    </div>
+    <div class="tn">
+    <button id="spacebar-retry-btn" style="display: none;">Recommencer</button>
+</div>
+        <button id="spacebar-back-to-menu">Retour au Menu</button>
+    
+        <!-- TABLEAU -->
+        <h3>Meilleurs Scores - Spacebar Counter</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="spacebar-highscores">
+                <!-- SCORES -->
+            </tbody>
+        </table>
+        <button id="reset-spacebar-scores-btn">Réinitialiser les Meilleurs Scores</button>
+    </div>
+
+
+
+
+                    <!-- memory-loop.js -->
+    <div class="container" id="memory-loop-container" style="display: none;">
+        <h1>Memory Loop Game</h1>
+        <h2>Pseudo : <span id="memory-loop-pseudo"></span></h2>
+        <p>Suivez la séquence de flèches dans le bon ordre!</p>
+        <div class="memory-game-container">
+            <div class="fleche" id="fleche-1">↑</div>
+            <div class="fleche" id="fleche-2">→</div>
+            <div class="fleche" id="fleche-3">↓</div>
+            <div class="fleche" id="fleche-4">←</div>
+        </div>
+        <button id="memory-start-btn">Commencer</button>
+        <p id="message"></p>
+        <button id="memory-back-to-menu">Retour au Menu</button>
+        <h3>Meilleurs Scores - Memory Loop</h3>
+                        <!-- TABLEAU -->
+<table>
+    <thead>
+        <tr>
+            <th>Pseudo</th>
+            <th>Niveau</th>
+        </tr>
+    </thead>
+    <tbody id="memory-loop-highscores">
+        <!-- SCORES-->
+    </tbody>
+</table>
+<button id="reset-memory-loop-scores-btn">Réinitialiser les Meilleurs Scores</button>
+    </div>
+
+
+
+
+
+
+                    <!-- LEADERBOARD PRINCIPAL -->
+    <div class="container" id="leaderboard-container" style="display: none;">
+        <h1 id="leaderboard-title">Leaderboard</h1>
+        <table id="leaderboard-table">
+            <thead id="leaderboard-header">
+                <!-- TABLEAU -->
+            </thead>
+            <tbody id="leaderboard-body">
+                <!-- SCORES -->
+            </tbody>
+        </table>
+        <button id="back-to-menu-from-leaderboard">Retour au Menu</button>
+    </div>
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="memory-loop.js"></script>
+    <script src="menu-principal.js"></script>
+    <script src="frappe.js"></script>
+    <script src="cps.js"></script>
+    <script src="reaction-time.js"></script>
+    <script src="draw-circle.js"></script>
+    <script src="spacebar-counter.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.game-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin: 0 auto;
+}
+.fleche {
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    border-radius: 50%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.hidden {
+    visibility: hidden;
+}
+#start-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.container {
+    background-color: #333333;
+    border: 4px solid #00ff00;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00ff00;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    font-size: 24px;
+    text-shadow: 2px 2px #000000;
+}
+
+h1 {
+    color: #00ff00;
+}
+
+h2 {
+    color: #ffcc00;
+}
+
+button, input[type="text"], textarea {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #333333;
+    color: #ffffff;
+    border: 2px solid #00ff00;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+button:hover, input[type="text"]:hover, textarea:hover {
+    border-color: #ffcc00;
+}
+
+input[type="text"], textarea {
+    width: calc(100% - 30px);
+    font-size: 16px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 2px solid #00ff00;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.pixelated {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+a {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+
+.menu {
+padding-left: 20px;
+}
+
+.tn {
+padding-left: 220px;      
+}   
+.memory-game-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin: 0 auto;
+
+}
